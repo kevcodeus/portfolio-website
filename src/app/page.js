@@ -4,10 +4,11 @@ import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
-import useClient from  'react';
+import React from 'react';
+import useClient from  './hooks/useClient';
 
 export default function Home() {
-  import useClient;
+  
   return (
     <main className="flex flex-col min-h-screen bg-[#121212]">
       <Navbar />
