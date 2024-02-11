@@ -1,6 +1,6 @@
 // EmailSection.jsx
 
-import React, { useState } from "react";
+import React, { useClient } from "react";
 
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
@@ -12,10 +12,10 @@ import emailjs from '@emailjs/browser';
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = React.useState(false);
-  const [name, setName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [subject, setSubject] = React.useState('');
-  const [message, setMessage] = React.useState('');
+  const [name, setName] = React.useClient('');
+  const [email, setEmail] = React.useClient('');
+  const [subject, setSubject] = useClient('');
+  const [message, setMessage] =useClient('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
