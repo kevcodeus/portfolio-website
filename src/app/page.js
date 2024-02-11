@@ -1,17 +1,11 @@
-// page.js
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
-import { useClient} from 'react-server-components';
-
-
 
 export default function Home() {
-  useClient();
   return (
     <main className="flex flex-col min-h-screen bg-[#121212]">
       <Navbar />
