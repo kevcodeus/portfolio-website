@@ -14,13 +14,13 @@ const EmailSection = () => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const serviceId = "service_o6k85xj";
     const templateId = "template_kqlwkk3";
     const publicKey = "Uls4lRKRITBVREoAz";
-
+    
     const templateParams = {
       from_name: name,
       from_email: email,
@@ -28,45 +28,38 @@ const EmailSection = () => {
       message: message,
     };
 
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        console.log('Email sent successfully! ', response);
-        setEmailSubmitted(true);
-        setName('');
-        setSubject('');
-        setEmail('');
-        setMessage('');
-      })
-      .catch((error) => {
-        console.error('Error in sending Email!', error);
-        toast.error('Error sending email. Check Internet!.');
-        setEmailSubmitted(false);
-      });
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Email sent successfully!');
+      setEmailSubmitted(true);
+      setName('');
+      setSubject('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      console.error('Error in sending Email!', error);
+      toast.error('Error sending email. Check Internet!');
+      setEmailSubmitted(false);
+    }
   }
 
   useEffect(() => {
+    let timer;
     if (emailSubmitted) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setEmailSubmitted(false);
       }, 7000);
-
-      return () => clearTimeout(timer);
     }
+    return () => clearTimeout(timer);
   }, [emailSubmitted]);
 
   return (
-    <section
-      id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
-    >
+    <section id="contact" className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
-        </h5>
+        <h5 className="text-xl font-bold text-white my-2">Let's Connect</h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md overflow-auto">
-          {" "}
-          I&apos;m actively seeking new opportunities and always eager to connect. Whether you have inquiries or simply want to say hello, feel free to reach out! I&apos;ll do my best to respond promptly.
+          I'm actively seeking new opportunities and always eager to connect. Whether you have inquiries or simply want to say hello, feel free to reach out! I'll do my best to respond promptly.
         </p>
         <div className="socials flex flex-row gap-2">
           <Link href="https://github.com/kevcodeus">
@@ -80,12 +73,7 @@ const EmailSection = () => {
       <div>
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <div className="mb-6">
-            <label
-              htmlFor="name"
-              className="text-white block text-sm mb-2 font-medium"
-            >
-              Your Name
-            </label>
+            <label htmlFor="name" className="text-white block text-sm mb-2 font-medium">Your Name</label>
             <input
               value={name}
               type="text"
@@ -97,12 +85,7 @@ const EmailSection = () => {
             />
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="text-white block mb-2 text-sm font-medium"
-            >
-              Your email
-            </label>
+            <label htmlFor="email" className="text-white block mb-2 text-sm font-medium">Your email</label>
             <input
               value={email}
               type="email"
@@ -114,12 +97,7 @@ const EmailSection = () => {
             />
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="subject"
-              className="text-white block text-sm mb-2 font-medium"
-            >
-              Subject
-            </label>
+            <label htmlFor="subject" className="text-white block text-sm mb-2 font-medium">Subject</label>
             <input
               value={subject}
               type="text"
@@ -131,12 +109,7 @@ const EmailSection = () => {
             />
           </div>
           <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="text-white block text-sm mb-2 font-medium"
-            >
-              Message
-            </label>
+            <label htmlFor="message" className="text-white block text-sm mb-2 font-medium">Message</label>
             <textarea
               value={message}
               id="message"
@@ -161,3 +134,4 @@ const EmailSection = () => {
 };
 
 export default EmailSection;
+
