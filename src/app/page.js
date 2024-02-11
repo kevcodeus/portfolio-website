@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
-import React,{useClient} from  'react';
+import useClient from  'react';
 
 export default function Home() {
   import useClient;
