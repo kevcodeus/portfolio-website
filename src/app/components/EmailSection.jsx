@@ -1,6 +1,6 @@
 // EmailSection.jsx
 
-import React, { useState } from "react";
+import React from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,11 +10,11 @@ import Image from "next/image";
 import emailjs from '@emailjs/browser';
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  const [emailSubmitted, setEmailSubmitted] = React.useState(false);
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [subject, setSubject] = React.useState('');
+  const [message, setMessage] = React.useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -151,3 +151,4 @@ const EmailSection = () => {
 };
 
 export default EmailSection;
+
