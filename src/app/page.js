@@ -5,6 +5,8 @@ import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 
+// Mark the parent component as a Client Component
+export const useClient = true;
 
 export default function Home() {
   return (
