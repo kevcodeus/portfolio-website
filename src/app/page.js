@@ -5,7 +5,7 @@ import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 import React from 'react';
-import useClient from  'useClient';
+
 
 export default function Home() {
   
