@@ -6,7 +6,7 @@ import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
-import useClient from "./hooks/useClient"; // Import the useClient hook
+import useClient from "./components/useClient"; // Import the useClient hook
 
 export default function Home() {
   const client = useClient(); // Use the useClient hook to ensure the EmailSection component is only rendered on the client side
