@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link";
 import Image from "next/image";
 import emailjs from '@emailjs/browser';
+import useClient from "./components/useClient"; 
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = React.useState(false);
