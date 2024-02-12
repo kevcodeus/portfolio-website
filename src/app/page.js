@@ -1,16 +1,15 @@
+// page.js
+import React from 'react';
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
-
-// Import the useClient hook
-import useClient from "./hooks/useClient";
+import useClient from "./hooks/useClient"; // Import the useClient hook
 
 export default function Home() {
-  // Use the useClient hook to ensure the EmailSection component is only rendered on the client side
-  const client = useClient();
+  const client = useClient(); // Use the useClient hook to ensure the EmailSection component is only rendered on the client side
 
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
