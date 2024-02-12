@@ -1,5 +1,5 @@
 // hooks/useClient.js
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const useClient = () => {
   const [isClient, setIsClient] = useState(false);
