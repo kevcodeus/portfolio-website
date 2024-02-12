@@ -1,14 +1,28 @@
-// hooks/useClient.js
-import { component } from 'react';
+import { useEffect, useState} from 'react';
+import axios from 'axios';
 
-const useClient = () => {
-  const [isClient, setIsClient] = useState(false);
+const useFetchData = () => {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setIsClient(true);
+    const fetchData = async () => {
+      try {
+        const { data: response } = await axios.get('/stuff/to/fetch');
+        setData(response);
+      } catch (error) {
+        console.error(error)
+      }
+      setLoading(false);
+    };
+
+    fetchData();
   }, []);
 
-  return isClient;
+  return {
+    data,
+    loading,
+  };
 };
 
-export default useClient;
+export default useFetchData;
