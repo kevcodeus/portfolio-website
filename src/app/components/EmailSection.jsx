@@ -1,7 +1,6 @@
 // EmailSection.jsx
 
-import React, { useClient } from "react";
-
+import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import { ToastContainer, toast } from 'react-toastify';
