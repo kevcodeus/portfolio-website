@@ -1,6 +1,6 @@
 // EmailSection.jsx
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,15 +11,14 @@ import emailjs from '@emailjs/browser';
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = React.useState(false);
-  const [name, setName] = React.useClient('');
-  const [email, setEmail] = React.useClient('');
-  const [subject, setSubject] = useClient('');
-  const [message, setMessage] =useClient('');
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [subject, setSubject] = React.useState('');
+  const [message, setMessage] = React.useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, subject, message } = this.state;
     const serviceId = "service_o6k85xj";
     const templateId = "template_kqlwkk3";
     const publicKey = "Uls4lRKRITBVREoAz";
@@ -152,4 +151,3 @@ const EmailSection = () => {
 };
 
 export default EmailSection;
-
