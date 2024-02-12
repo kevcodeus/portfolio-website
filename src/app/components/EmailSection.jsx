@@ -1,5 +1,5 @@
 // EmailSection.jsx
-
+"use client";
 import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
